@@ -5,6 +5,7 @@ const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const notesRouter = require('./controllers/notes')
+const usersRouter = require('./controllers/users')
 const {
   requestLogger,
   errorHandler,
@@ -21,6 +22,7 @@ app.use(express.json())
 app.use(cors())
 app.use(requestLogger)
 app.use('/api/notes', notesRouter)
+app.use('/api/users', usersRouter)
 app.use(errorHandler)
 app.use(unknownEndpointHandler)
 module.exports = app
