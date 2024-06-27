@@ -15,7 +15,7 @@ const {
 logger.info('Starting server: connecting to database...')
 mongoose.connect(config.MONGODB_URI)
   .then(() => logger.info('Server connected to MongoDB!'))
-  .catch(error => logger.info('Error while connecting to MongoDB: ', error.message))
+  .catch(error => logger.error('ERROR while connecting to MongoDB: ', error.message))
 
 const app = express()
 app.use(express.json())
